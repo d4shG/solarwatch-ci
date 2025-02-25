@@ -1,0 +1,21 @@
+﻿services:
+  solarwatch:
+    image: solarwatch
+    build:
+      context: .
+      dockerfile: SolarWatch/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+     - OpenWeatherMapApiKey=${OpenWeatherMapApiKey}
+     - DbConnectionString=${DbConnectionString}
+  db:
+    image: mcr.microsoft.com/mssql/server:latest
+    container_name: solarwatch_db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "1433:1433"
