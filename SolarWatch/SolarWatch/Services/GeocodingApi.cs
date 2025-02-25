@@ -11,7 +11,7 @@ public class GeocodingApi(ILogger<GeocodingApi> logger): ICityDataProvider
 	private const int CityLimit = 1;
 
 	private static readonly string ApiKey =
-		Environment.GetEnvironmentVariable("OpenWeatherMapApiKey")  ?? 
+		Environment.GetEnvironmentVariable("OPENWEATHERMAPAPIKEY")  ?? 
 		throw new InvalidOperationException("API key for OpenWeatherMap is missing.");
 
 

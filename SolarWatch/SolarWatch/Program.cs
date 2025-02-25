@@ -67,7 +67,7 @@ void AddDbContext(WebApplicationBuilder builder1)
 	builder1.Services.AddDbContext<SolarWatchContext>(options =>
 	{
 		options.UseSqlServer(
-			Environment.GetEnvironmentVariable("DbConnectionString"),
+			Environment.GetEnvironmentVariable("DBCONNECTIONSTRING"),
 			sqlOptions => sqlOptions.EnableRetryOnFailure(
 				maxRetryCount: 5,
 				maxRetryDelay: TimeSpan.FromSeconds(10),
